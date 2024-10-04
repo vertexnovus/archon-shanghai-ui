@@ -1,0 +1,44 @@
+.root {
+  z-index: 100;
+  position: relative;
+  height: rem(64px);
+}
+.header {
+  height: rem(64px);
+  background-color: var(--mantine-color-red-8);
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.inner {
+  height: rem(64px);
+  background-color: var(--mantine-color-red-8);
+  display: flex;
+  z-index: 10;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  align-items: center;
+}
+
+.link {
+  text-transform: capitalize;
+  display: block;
+  line-height: 1;
+  padding: rem(8px) rem(12px);
+  /*border-radius: var(--mantine-radius-sm);*/
+  text-decoration: none;
+  font-size: var(--mantine-font-size-md);
+  font-weight: 600;
+  color: var(--mantine-color-white);
+
+  [data-mantine-color-scheme] &[data-active] {
+    background-color: var(--mantine-color-blue-filled);
+    color: var(--mantine-color-white);
+  }
+}

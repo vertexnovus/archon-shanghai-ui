@@ -1,0 +1,20 @@
+@keyframes blink {
+    from, to {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.root {
+    background-color: transparent !important;
+    min-width: var(--mantine-breakpoint-sm);
+    text-align: center;
+}
+
+.dot {
+    color: var(--mantine-color-red-5);
+
+    animation: 1s blink infinite ease;
+}

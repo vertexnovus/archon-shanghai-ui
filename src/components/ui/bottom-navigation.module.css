@@ -1,0 +1,29 @@
+.root {
+    position:relative;
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.link {
+    flex: 1;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    color: var(--mantine-color-default-text) !important;
+
+    &:hover {
+        background-color: var(--mantine-color-default-bg-hover);
+    }
+
+    &[data-active="true"] {
+        color: var(--mantine-color-primary-5) !important;
+    }
+
+    &:last-child {
+        border-right: none;
+    }
+}

@@ -1,0 +1,67 @@
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+.root {
+    position: relative;
+    overflow: hidden;
+    padding: var(--mantine-spacing-sm);
+    padding-left: calc(var(--mantine-spacing-sm) * 2);
+    background: linear-gradient(
+            -45deg,
+            var(--mantine-color-pink-6),
+            var(--mantine-color-orange-6),
+            var(--mantine-color-red-6),
+            var(--mantine-color-yellow-6),
+            var(--mantine-color-green-3)
+    );
+    background-size: 400% 400%;
+    animation: gradient-animation 15s ease infinite;
+    color: white;
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: $mantine-breakpoint-xs) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--mantine-spacing-sm);
+    }
+
+}
+
+.ball {
+    width: rem(80px);
+    max-width: rem(80px);
+    height: rem(80px);
+}
+
+
+.grandBall {
+    width: rem(72px);
+    max-width: rem(72px);
+    height: rem(72px);
+
+    @media (max-width: $mantine-breakpoint-sm) {
+        width: rem(60px);
+        max-width: rem(60px);
+        height: rem(60px);
+    }
+}
+
+.ballText {
+    top: rem(10px);
+
+    @media (max-width: $mantine-breakpoint-sm) {
+        top: rem(8px);
+    }
+}

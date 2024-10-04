@@ -1,0 +1,37 @@
+.header {
+  font-weight: 600;
+  background-color: var(--mantine-color-red-5);
+  /*border-radius: var(--mantine-radius-md);*/
+}
+
+.td {
+  font-weight: 500;
+}
+
+.grandBall {
+  width: rem(40px);
+  max-width: rem(40px);
+  height: rem(40px);
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    width: rem(32px) !important;
+    max-width: rem(32px);
+    height: rem(32px);
+  }
+}
+
+
+.ball {
+  width: rem(80px);
+  max-width: rem(80px);
+  height: rem(80px);
+}
+
+.ballText {
+  top: rem(8px);
+  color: white;
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    top: rem(6px);
+  }
+}

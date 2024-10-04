@@ -1,0 +1,24 @@
+.dialogTitle {
+  font-size: var(--mantine-font-size-xl) !important;
+  font-weight: 600 !important;
+  text-align: center;
+  flex: 1;
+}
+
+.dialogHeader {
+  border-bottom: 1px solid var(--mantine-color-default-border);
+  background-color: var(--mantine-color-gray-1)!important;
+
+  @mixin dark {
+    background-color: var(--mantine-color-dark-8) !important;
+  }
+}
+
+.table {
+  border-collapse: inherit !important;
+  border-radius: var(--mantine-radius-md) !important;
+}
+
+.errorInput {
+  text-transform: capitalize;
+}

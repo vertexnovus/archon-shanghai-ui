@@ -1,0 +1,8 @@
+.body {
+    padding: 0 !important;
+}
+
+.close {
+    right: 10px;
+    top: 10px;
+}

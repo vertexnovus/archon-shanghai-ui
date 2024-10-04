@@ -1,0 +1,17 @@
+.root {
+    gap: var(--mantine-spacing-md);
+    justify-content: center;
+    align-items: center;
+
+    border-right: 1px solid var(--mantine-color-gray-3);
+    padding-right: var(--mantine-spacing-xl);
+
+    @media (max-width: $mantine-breakpoint-xs) {
+        padding-right: var(--mantine-spacing-sm);
+    }
+
+    &:last-child {
+        border-right: none;
+        padding-right: 0;
+    }
+}

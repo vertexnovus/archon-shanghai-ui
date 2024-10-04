@@ -1,0 +1,43 @@
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+.root {
+    position: relative;
+    overflow: hidden;
+    padding: var(--mantine-spacing-sm);
+    padding-left: calc(var(--mantine-spacing-sm) * 2);
+    animation: gradient-animation 15s ease infinite;
+    background-color: var(--mantine-color-red-8) !important;
+    color: white;
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: $mantine-breakpoint-xs) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--mantine-spacing-sm);
+    }
+
+}
+
+.ball {
+    width: rem(42px);
+    height: rem(42px);
+}
+
+
+.grandBall {
+    width: rem(60px);
+    height: rem(60px);
+}

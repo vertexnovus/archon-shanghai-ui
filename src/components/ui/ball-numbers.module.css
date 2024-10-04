@@ -1,0 +1,9 @@
+.ball {
+  width: rem(80px);
+  max-width: rem(80px);
+  height: rem(80px);
+}
+
+.ballText {
+  top: rem(20px);
+}
