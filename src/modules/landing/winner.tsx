@@ -25,7 +25,7 @@ export default function Winner() {
         {t('latestResult')}
       </Title>
       <Title order={4} ta="center" tt={'uppercase'} c="white" mb="md">
-        {generateDateStamp(grandPrize.lotteryDate)}
+        {generateDateStamp(grandPrize?.lotteryDate)}
       </Title>
       <BackgroundImage
         w="100%"
