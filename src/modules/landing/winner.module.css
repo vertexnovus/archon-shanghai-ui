@@ -39,27 +39,33 @@
 
 }
 
-.ball {
-    width: rem(80px);
-    max-width: rem(80px);
-    height: rem(80px);
+.title {
+    text-align: center;
+    color: black;
+    background: linear-gradient(
+            90deg,
+            transparent,
+            var(--mantine-color-teal-5),
+            transparent
+    );
+    margin-bottom: var(--mantine-spacing-sm);
 }
 
-
-.grandBall {
-    width: rem(72px);
-    max-width: rem(72px);
-    height: rem(72px);
+.ball {
+    margin-right: var(--mantine-spacing-sm);
+    width: rem(60px);
+    max-width: rem(60px);
+    height: rem(60px);
 
     @media (max-width: $mantine-breakpoint-sm) {
-        width: rem(60px);
-        max-width: rem(60px);
-        height: rem(60px);
+        width: rem(48px);
+        max-width: rem(48px);
+        height: rem(48px);
     }
 }
 
 .ballText {
-    top: rem(10px);
+    top: rem(8px);
 
     @media (max-width: $mantine-breakpoint-sm) {
         top: rem(8px);

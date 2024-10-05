@@ -1,4 +1,4 @@
-import Ball from '@/assets/ball.png'
+import Ball from '@/assets/ball/empty.png'
 import { Box, Flex, Image, Text } from '@mantine/core'
 import classes from './ball-numbers.module.css'
 

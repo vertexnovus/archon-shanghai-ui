@@ -4,6 +4,18 @@ import classes from './Default.module.css'
 export const theme = createTheme({
   primaryColor: 'primary',
   colors: {
+    accents: [
+      '#220000',
+      '#220000',
+      '#220000',
+      '#220000',
+      '#220000',
+      '#220000',
+      '#220000',
+      '#220000',
+      '#220000',
+      '#220000',
+    ],
     primary: [
       '#eff6ff',
       '#dbeafe',

@@ -1,5 +1,5 @@
 .root {
-    overflow: hidden;
+    /*height: 100vh;*/
 }
 
 .vortex {
@@ -11,7 +11,6 @@
     width: 100%;
     min-height: 40vh;
 
-    gap: var(--mantine-spacing-xl);
 }
 
 .dots {

@@ -1,9 +1,10 @@
+import bg from '@/assets/background.png'
 import About from '@/modules/landing/about'
 import Hero from '@/modules/landing/hero'
 import History from '@/modules/landing/history'
 import { getHistoryQueryOptions, landingSettingsQueryOptions, nextLiveQueryOptions } from '@/services/landing'
 import { bannerQueryOptions } from '@/services/settings'
-import { Space, useMantineColorScheme } from '@mantine/core'
+import { BackgroundImage, Space, useMantineColorScheme } from '@mantine/core'
 import { createFileRoute } from '@tanstack/react-router'
 import { useEffect } from 'react'
 
@@ -28,10 +29,9 @@ function Index() {
 
   return (
     <>
-      <Hero />
-
-      <Space h={{ base: 40, lg: 80 }} />
-
+      <BackgroundImage src={bg} style={{ backgroundSize: 'contain', backgroundAttachment: 'fixed' }} bgr="no-repeat">
+        <Hero />
+      </BackgroundImage>
       <About />
 
       <Space h={{ base: 40, lg: 80 }} />

@@ -1,6 +1,5 @@
-import Ball from '@/assets/ball-result.png'
 import { LotteryTypes } from '@/services/lottery'
-import { Box, Flex, Image, Skeleton, Table, Text } from '@mantine/core'
+import { Flex, Skeleton, Table, Text } from '@mantine/core'
 import dayjs from 'dayjs'
 import range from 'lodash/range'
 import classes from './tables.module.css'
@@ -9,8 +8,6 @@ const tables = ['date']
 
 function DataTables({ data, isLoading }: { data: LotteryTypes[]; isLoading: boolean }) {
   const getTotalWinnerColumns = data[0]?.winners.length
-
-  console.log('data: ', data)
 
   return (
     <Table.ScrollContainer minWidth={500}>
@@ -22,22 +19,22 @@ function DataTables({ data, isLoading }: { data: LotteryTypes[]; isLoading: bool
           td: classes.td,
         }}
         striped
-        stripedColor={'red.3'}
-        highlightOnHoverColor={'red.4'}
+        stripedColor={'dark.6'}
+        highlightOnHoverColor={'dark.4'}
       >
         <Table.Thead>
           <Table.Tr style={{ borderRadius: 100 }}>
             {tables.map((item) => (
               <Table.Th key={item} align="center">
-                <Text ta="center" fz="sm" fw={600}>
+                <Text ta="center" fz="sm" fw={600} c="white">
                   {item.toUpperCase()}
                 </Text>
               </Table.Th>
             ))}
             {range(0, getTotalWinnerColumns).map((item) => (
-              <Table.Th key={item} align="center">
+              <Table.Th key={item} align="center" c="white">
                 <Text ta="center" fz="sm" fw={600}>
-                  Prize #{item + 1}
+                  Prize {item + 1}
                 </Text>
               </Table.Th>
             ))}
@@ -61,23 +58,13 @@ function DataTables({ data, isLoading }: { data: LotteryTypes[]; isLoading: bool
           )}
           {data.map((item) => (
             <Table.Tr key={item.lotteryDate}>
-              <Table.Td align="center">{dayjs(item.lotteryDate).format('DD MMMM YYYY HH:mm')} GMT+7</Table.Td>
+              <Table.Td align="center">{dayjs(item.lotteryDate).format('DD MMMM YYYY')}</Table.Td>
 
               {item.winners.map((winner) => {
                 return (
                   <Table.Td align="center">
                     <Flex gap="xs" pos="relative" justify={'center'}>
-                      {winner.numbers.split('').map((item, _index) => (
-                        <Flex key={_index} align="center" justify="center" pos={'relative'}>
-                          <Image src={Ball} className={classes.grandBall} fit="fill" />
-
-                          <Box pos="absolute" className={classes.ballText}>
-                            <Text fz={{ base: 'sm', md: 'md' }} fw={600}>
-                              {item}
-                            </Text>
-                          </Box>
-                        </Flex>
-                      ))}
+                      {winner.numbers}
                     </Flex>
                   </Table.Td>
                 )

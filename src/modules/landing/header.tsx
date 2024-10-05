@@ -1,7 +1,7 @@
 import { COUNTDOWN_SETUP } from '@/lib/constants/misc'
 import { useLanding } from '@/modules/landing/LandingProvider'
 import { FlagSelection } from '@/modules/landing/flag-selection'
-import { Box, Button, Container, Flex, Text, Transition } from '@mantine/core'
+import { Box, Button, Container, Flex, Group, Image, Text, Transition } from '@mantine/core'
 import { useHeadroom } from '@mantine/hooks'
 import { Link } from '@tanstack/react-router'
 import { get } from 'lodash'
@@ -46,13 +46,13 @@ export default function Header() {
         {(styles) => (
           <Box className={classes.header} style={styles}>
             <Container size={'md'} className={classes.inner}>
-              <a href="/">
-                <img src={logoData} width={180} height={'100%'} alt="logo" />
-              </a>
-              <Flex justify="flex-end" align="center" gap={'md'}>
+              <Link to="/">
+                <Image src={logoData} w={180} h={'100%'} alt="logo" p="sm" />
+              </Link>
+              <Group gap={'md'}>
                 <Flex visibleFrom="xs">{items}</Flex>
                 <FlagSelection />
-              </Flex>
+              </Group>
             </Container>
           </Box>
         )}
@@ -60,7 +60,7 @@ export default function Header() {
 
       <Transition mounted={!pinned} keepMounted transition="slide-down" duration={400}>
         {(styles) => (
-          <Box bg="red" className={classes.inner} style={styles} h={{ base: 64, lg: 48 }} w="100%">
+          <Box bg="accents" className={classes.inner} style={styles} h={{ base: 64, lg: 48 }} w="100%">
             <Container size="xl">
               <Flex
                 direction={{ base: 'column', lg: 'row' }}

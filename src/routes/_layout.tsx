@@ -12,7 +12,7 @@ export const Route = createFileRoute('/_layout')({
   component: Layout,
 })
 
-export default function Layout() {
+function Layout() {
   const { i18n } = useTranslation('translation', { lng: localStorage.getItem('lang') ?? 'th' })
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export default function Layout() {
   }, [])
 
   return (
-    <AppShell footer={{ height: 52 }}>
+    <AppShell bg="accents.4" footer={{ height: 52 }}>
       <LandingProvider>
         <PopupBanner />
         <Header />

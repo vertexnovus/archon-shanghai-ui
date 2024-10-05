@@ -1,11 +1,12 @@
-import { BallNumbers } from '@/components/ui/ball-numbers'
+import bg from '@/assets/background.png'
 import { SkeletonWrapper } from '@/components/ui/skeleton-wrapper'
+import WinnerBox from '@/components/ui/winner-box'
 import { generateDateStamp } from '@/lib/constants/misc'
 import DataTables from '@/modules/history/data-tables'
 import About from '@/modules/landing/about'
 import { getHistoryQueryOptions } from '@/services/landing'
 import { LotteryTypes } from '@/services/lottery'
-import { Container, Flex, Grid, Pagination, Paper, Stack, Text, Title } from '@mantine/core'
+import { BackgroundImage, Box, Container, Flex, Pagination, Paper, Stack, Text, Title, alpha } from '@mantine/core'
 import { DatePickerInput, DateValue } from '@mantine/dates'
 import { useWindowScroll } from '@mantine/hooks'
 import { useSuspenseQuery } from '@tanstack/react-query'
@@ -45,7 +46,7 @@ function HistoryPage() {
 
   const handleDateChange = (value: DateValue) => {
     // @ts-ignore
-    navigate({ search: { page: 1, date: dayjs(value).format('YYYY-MM-DD') } })
+    navigate({ search: { page: 1, date: value ? dayjs(value).format('YYYY-MM-DD') : '' } })
   }
 
   useEffect(() => {
@@ -55,74 +56,71 @@ function HistoryPage() {
   }, [data])
 
   return (
-    <Container mt="xl">
-      <Paper p="md">
-        {isLoading ? (
-          <SkeletonWrapper count={10} height={50} />
-        ) : (
-          <>
-            <Stack justify="center" align="center" gap="xs" mb="md">
-              <Title>{t('latestResult')}</Title>
-              {latestWinner && (
-                <>
-                  <Text fz={'lg'} fw={600}>
-                    {generateDateStamp(latestWinner.lotteryDate)}
-                  </Text>
-                  <Paper withBorder p="sm" display={'flex'}>
-                    <Grid mb="md" mx="md">
-                      {latestWinner.winners.map((item, _i) => {
-                        const splitNumber = item.numbers.split('')
+    <Box>
+      <BackgroundImage src={bg} opacity={1}>
+        <Container mt="xl">
+          {isLoading ? (
+            <SkeletonWrapper count={10} height={50} />
+          ) : (
+            <>
+              <Stack justify="center" align="center" gap="lg" mb="md">
+                <Title c="white">{t('latestResult')}</Title>
+                {latestWinner && (
+                  <>
+                    <Text fz={'lg'} fw={600} c="white">
+                      {generateDateStamp(latestWinner.lotteryDate)}
+                    </Text>
+                    <Paper
+                      withBorder
+                      p="sm"
+                      style={{
+                        backgroundColor: 'var(--mantine-color-accents-4)',
+                        border: '4px solid var(--mantine-color-accents-4)',
+                      }}
+                    >
+                      <Stack gap="lg">
+                        {latestWinner.winners.map((item, _i) => {
+                          return <WinnerBox index={_i} numbers={item.numbers} />
+                        })}
+                      </Stack>
+                    </Paper>
+                  </>
+                )}
+              </Stack>
 
-                        return (
-                          <Grid.Col span={{ base: 12, lg: _i === 0 ? 12 : 6 }} key={item.numbers} ta="center">
-                            <Title order={2} fw={600} mb="sm">
-                              Prize #{_i + 1}
-                            </Title>
-
-                            <Flex align="center" gap="xs" justify={'center'}>
-                              {splitNumber.map((item, j) => (
-                                <BallNumbers key={j} number={item} />
-                              ))}
-                            </Flex>
-                          </Grid.Col>
-                        )
-                      })}
-                    </Grid>
-                  </Paper>
-                </>
-              )}
-            </Stack>
-
-            <Flex align={'center'} mt="xl" gap="md" mb="md" justify={'center'}>
-              <Text fw={600}>Search Date</Text>
-              <DatePickerInput
-                miw={200}
-                clearable
-                maxDate={new Date()}
-                placeholder="Select date"
-                defaultValue={search.date ? dayjs(search?.date).toDate() : null}
-                onChange={handleDateChange}
-              />
-            </Flex>
-            <Paper bg="red.1" p="md">
-              <DataTables data={data} isLoading={isLoading} />
-
-              <Flex align={'center'} mt="xl" justify={'flex-end'}>
-                <Pagination
-                  color={'red.8'}
-                  total={get(meta, 'lastPage', 0)}
-                  siblings={1}
-                  defaultValue={1}
-                  withEdges
-                  value={search.page}
-                  onChange={handlePaginationChange}
+              <Flex align={'center'} mt="xl" gap="md" mb="md" justify={'center'}>
+                <Text c="white" fw={600}>
+                  Search Date
+                </Text>
+                <DatePickerInput
+                  miw={200}
+                  clearable
+                  maxDate={new Date()}
+                  placeholder="Select date"
+                  defaultValue={search.date ? dayjs(search?.date).toDate() : null}
+                  onChange={handleDateChange}
                 />
               </Flex>
-            </Paper>
-          </>
-        )}
-      </Paper>
+              <Paper bg={alpha('#000', 0.3)} pb="md">
+                <DataTables data={data} isLoading={isLoading} />
+
+                <Flex align={'center'} mt="xl" justify={'flex-end'} px="md">
+                  <Pagination
+                    color={'red.8'}
+                    total={get(meta, 'lastPage', 0)}
+                    siblings={1}
+                    defaultValue={1}
+                    withEdges
+                    value={search.page}
+                    onChange={handlePaginationChange}
+                  />
+                </Flex>
+              </Paper>
+            </>
+          )}
+        </Container>
+      </BackgroundImage>
       <About />
-    </Container>
+    </Box>
   )
 }

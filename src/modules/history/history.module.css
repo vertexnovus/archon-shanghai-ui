@@ -1,0 +1,6 @@
+.root::before {
+  background: url("../../assets/banner-bg.jpg") no-repeat top center;
+  height: 500px;
+  background-size: cover;
+  content: "' '";
+}

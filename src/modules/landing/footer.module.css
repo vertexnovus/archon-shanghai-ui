@@ -1,16 +1,16 @@
 .footer {
     padding-top: calc(var(--mantine-spacing-xl));
     padding-bottom: calc(var(--mantine-spacing-xl) );
-    background-color: var(--mantine-color-red-8);
-    border-top: rem(1px) solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-5));
+    /*background-color: var(--mantine-color-red-8);*/
+    text-align: center;
+    /*border-top: rem(1px) solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-5));*/
 }
 
 .logo {
-    @media (max-width: $mantine-breakpoint-sm) {
         display: flex;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
-    }
 }
 
 .description {
@@ -25,7 +25,7 @@
 
 .inner {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 
     @media (max-width: $mantine-breakpoint-sm) {
         flex-direction: column;

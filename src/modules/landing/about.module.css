@@ -33,12 +33,11 @@
     font-weight: 800;
     font-size: var(--mantine-h1-font-size);
     letter-spacing: -1px;
-    color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
+    color: light-dark(var(--mantine-color-white), var(--mantine-color-white));
     margin-bottom: var(--mantine-spacing-md);
 
     @media (max-width: $mantine-breakpoint-sm) {
         font-size: var(--mantine-h3-font-size) !important;
-        text-align: left;
     }
 }
 
@@ -50,7 +49,6 @@
     text-align: center;
 
     @media (max-width: $mantine-breakpoint-xs) {
-        text-align: left;
         font-size: var(--mantine-font-size-md);
     }
 }

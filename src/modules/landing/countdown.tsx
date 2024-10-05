@@ -15,7 +15,7 @@ const CountdownItem = ({
 }: {
   unit: Units
   text: string
-  color: string
+  color?: string
   orientation?: 'horizontal' | 'vertical'
   size?: 'sm' | 'md' | 'lg'
 }) => {

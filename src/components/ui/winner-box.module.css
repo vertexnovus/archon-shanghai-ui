@@ -1,0 +1,15 @@
+.title {
+    color: 'var(--mantine-color-yellow-5)';
+    stroke: var(--mantine-color-yellow-5);
+}
+.ball {
+    width: rem(60);
+    max-width: rem(60);
+    height: rem(60);
+
+    @media (max-width: $mantine-breakpoint-sm) {
+        width: rem(40);
+        max-width: rem(40);
+        height: rem(40);
+    }
+}

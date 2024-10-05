@@ -1,13 +1,13 @@
-import indoFlag from '@/assets/indonesia.png'
+import chinaFlag from '@/assets/china.png'
 import usFlag from '@/assets/united-states.png'
-import { Button, Image, Menu } from '@mantine/core'
+import { Button, Menu } from '@mantine/core'
 import { ChevronDown } from 'lucide-react'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 const languages = [
-  { value: 'en', label: 'EN', flag: usFlag },
-  { value: 'tr', label: 'ID', flag: indoFlag },
+  { value: 'en', label: 'English', flag: usFlag },
+  { value: 'id', label: 'Chinese', flag: chinaFlag },
 ]
 
 export function FlagSelection() {
@@ -25,22 +25,16 @@ export function FlagSelection() {
   return (
     <Menu shadow="md" withArrow offset={0} width={200}>
       <Menu.Target>
-        <Button
-          w={'inherit'}
-          color="white"
-          variant="transparent"
-          leftSection={<Image src={selectedLanguage?.flag} maw={18} height={18} />}
-          rightSection={<ChevronDown size={18} />}
-        >
-          {selectedLanguage?.label}
+        <Button w={'inherit'} color="white" variant="transparent" rightSection={<ChevronDown size={18} />} p={0}>
+          <img src={selectedLanguage?.flag} width={20} height={20} />
         </Button>
       </Menu.Target>
 
-      <Menu.Dropdown bg="rgba(255,255,255,0.8)" w={90}>
+      <Menu.Dropdown bg="rgba(255,255,255,0.8)" w={120}>
         {languages.map((item) => (
           <Menu.Item
             key={item.value}
-            leftSection={<Image src={item.flag} width={18} height={18} />}
+            leftSection={<img src={item.flag} width={20} height={20} />}
             onClick={() => handleLanguageClick(item.value)}
           >
             {item.label}
