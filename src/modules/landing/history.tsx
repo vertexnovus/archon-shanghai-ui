@@ -52,7 +52,7 @@ export default function History() {
                     </Title>
 
                     <Text c="white" fw={600}>
-                      {generateDateStamp(item.lotteryDate)}
+                      {item ? generateDateStamp(item.lotteryDate) : ''}
                     </Text>
                   </Box>
                 </Flex>
