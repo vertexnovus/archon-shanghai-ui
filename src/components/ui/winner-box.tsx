@@ -6,7 +6,14 @@ export default function WinnerBox({ numbers, index }: { numbers: string; index: 
   const isMobile = useMediaQuery(`(max-width: ${em(750)})`)
 
   return (
-    <Flex ta="center" w={'100%'} justify={'center'} gap="xl" align={'center'}>
+    <Flex
+      ta="center"
+      w={'100%'}
+      justify={'center'}
+      gap="xl"
+      align={'center'}
+      mt={{ base: 0, lg: index === 0 ? 'xl' : 'md' }}
+    >
       <Image src={`0${index + 1}.png`} w={isMobile ? 60 : 80} h={isMobile ? 60 : 80} fit="contain" />
 
       <Flex gap="sm" justify={'center'}>

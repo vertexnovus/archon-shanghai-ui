@@ -32,6 +32,7 @@ export const config = {
   ABOUT_DESCRIPTION: 'about_description',
   HERO_TITLE: 'hero_title',
   HERO_DESCRIPTION: 'hero_description',
+  MAIN_BG: 'main_bg',
 }
 
 export const BANNER_SPEED = 5000

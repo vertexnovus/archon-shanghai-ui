@@ -1,8 +1,8 @@
-import bg from '@/assets/background.png'
 import { SkeletonWrapper } from '@/components/ui/skeleton-wrapper'
 import WinnerBox from '@/components/ui/winner-box'
-import { generateDateStamp } from '@/lib/constants/misc'
+import { config, generateDateStamp } from '@/lib/constants/misc'
 import DataTables from '@/modules/history/data-tables'
+import { useLanding } from '@/modules/landing/LandingProvider'
 import About from '@/modules/landing/about'
 import { getHistoryQueryOptions } from '@/services/landing'
 import { LotteryTypes } from '@/services/lottery'
@@ -29,7 +29,8 @@ function HistoryPage() {
   const search: { product: string; page: number; date: string } = Route.useSearch()
   const [latestWinner, setLatestWinner] = useState<LotteryTypes>()
   const { t } = useTranslation()
-
+  const { findValue } = useLanding()
+  const mainBg = findValue(config.MAIN_BG, false)
   const { data: history, isLoading } = useSuspenseQuery(
     getHistoryQueryOptions({ page: search.page || 1, product: search?.product, count: 10, date: search?.date }),
   )
@@ -57,7 +58,7 @@ function HistoryPage() {
 
   return (
     <Box>
-      <BackgroundImage src={bg} opacity={1}>
+      <BackgroundImage src={mainBg!} opacity={1}>
         <Container mt="xl">
           {isLoading ? (
             <SkeletonWrapper count={10} height={50} />

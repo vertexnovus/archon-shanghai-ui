@@ -1,9 +1,9 @@
-import bg from '@/assets/background.png'
 import tableBg from '@/assets/table-result-bg.png'
 import ShuffleText from '@/components/ui/shuffle-text'
 import { SkeletonWrapper } from '@/components/ui/skeleton-wrapper'
-import { generateDateStamp } from '@/lib/constants/misc'
+import { config, generateDateStamp } from '@/lib/constants/misc'
 import { toMilliseconds } from '@/lib/utils'
+import { useLanding } from '@/modules/landing/LandingProvider'
 import About from '@/modules/landing/about'
 import classes from '@/modules/landing/winner.module.css'
 import { PreviousWinners } from '@/modules/live/previous-winners'
@@ -28,6 +28,8 @@ function LivePage() {
     data: { data },
     isLoading,
   } = useSuspenseQuery({ ...liveQueryOptions, refetchInterval: toMilliseconds(0, 1, 0) })
+  const { findValue } = useLanding()
+  const mainBg = findValue(config.MAIN_BG, false)
   const { t } = useTranslation()
   const isMobile = useMediaQuery(`(max-width: ${em(750)})`)
 
@@ -38,7 +40,7 @@ function LivePage() {
       ) : (
         <Stack align="center" w={'100%'}>
           <BackgroundImage
-            src={bg}
+            src={mainBg!}
             opacity={1}
             bgr="no-repeat"
             bgsz={isMobile ? 'cover' : 'contain'}

@@ -1,4 +1,5 @@
-import bg from '@/assets/background.png'
+import { config } from '@/lib/constants/misc'
+import { useLanding } from '@/modules/landing/LandingProvider'
 import About from '@/modules/landing/about'
 import Hero from '@/modules/landing/hero'
 import History from '@/modules/landing/history'
@@ -22,6 +23,8 @@ export const Route = createFileRoute('/_layout/')({
 
 function Index() {
   const { setColorScheme } = useMantineColorScheme()
+  const { findValue } = useLanding()
+  const mainBg = findValue(config.MAIN_BG, false)
 
   useEffect(() => {
     setColorScheme('light')
@@ -29,7 +32,11 @@ function Index() {
 
   return (
     <>
-      <BackgroundImage src={bg} style={{ backgroundSize: 'contain', backgroundAttachment: 'fixed' }} bgr="no-repeat">
+      <BackgroundImage
+        src={mainBg!}
+        style={{ backgroundSize: 'contain', backgroundAttachment: 'fixed' }}
+        bgr="no-repeat"
+      >
         <Hero />
       </BackgroundImage>
       <About />
