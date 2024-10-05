@@ -15,6 +15,10 @@ export default function Winner() {
   const grandPrize = lotteryData[0]
   const isMobile = useMediaQuery(`(max-width: ${em(750)})`)
 
+  if (!lotteryData) {
+    return null
+  }
+
   return (
     <>
       <Title order={2} mb={0} ta="center" tt={'uppercase'} c="white">
