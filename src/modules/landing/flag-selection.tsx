@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next'
 
 const languages = [
   { value: 'en', label: 'English', flag: usFlag },
-  { value: 'id', label: 'Chinese', flag: chinaFlag },
+  { value: 'tr', label: 'Chinese', flag: chinaFlag },
 ]
 
 export function FlagSelection() {
