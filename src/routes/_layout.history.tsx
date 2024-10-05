@@ -58,7 +58,7 @@ function HistoryPage() {
 
   return (
     <Box>
-      <BackgroundImage src={mainBg!} opacity={1}>
+      <BackgroundImage src={mainBg!} style={{ backgroundAttachment: 'fixed' }} bgsz="contain">
         <Container mt="xl">
           {isLoading ? (
             <SkeletonWrapper count={10} height={50} />

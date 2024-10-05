@@ -75,7 +75,7 @@ function LivePage() {
                 ) : null}
               </Stack>
 
-              <Box component={Stack} justify={'center'} align={'center'} w={'100%'} p="md" mih={500}>
+              <Box component={Stack} justify={'center'} align={'center'} w={'100%'} mih={200}>
                 {data.product ? (
                   <>
                     {data.drawing ? (
