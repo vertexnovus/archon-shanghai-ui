@@ -32,11 +32,7 @@ function Index() {
 
   return (
     <>
-      <BackgroundImage
-        src={mainBg!}
-        style={{ backgroundSize: 'contain', backgroundAttachment: 'fixed' }}
-        bgr="no-repeat"
-      >
+      <BackgroundImage src={mainBg!} bgsz="cover" bgr="no-repeat">
         <Hero />
       </BackgroundImage>
       <About />

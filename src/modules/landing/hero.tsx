@@ -1,7 +1,7 @@
 import { COUNTDOWN_SETUP } from '@/lib/constants/misc'
 import { useLanding } from '@/modules/landing/LandingProvider'
 import Winner from '@/modules/landing/winner'
-import { Box, Button, Container, Flex, Title } from '@mantine/core'
+import { Box, Button, Container, Flex, Title, alpha } from '@mantine/core'
 import { Link } from '@tanstack/react-router'
 import { get } from 'lodash'
 import { useTranslation } from 'react-i18next'
@@ -30,7 +30,7 @@ export default function Hero() {
             {t('viewAllResult')}
           </Button>
           {drawingIsLive ? null : (
-            <Box ta="center">
+            <Box ta="center" bg={alpha('accents', 0.8)} p="md" style={{ borderRadius: 'var(--mantine-radius-md)' }}>
               <Title order={3} ta="center" mb="md" tt={'uppercase'} c="white">
                 {t('countdown')}
               </Title>
