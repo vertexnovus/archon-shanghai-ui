@@ -71,3 +71,18 @@
         top: rem(8px);
     }
 }
+
+.grandBall {
+    width: rem(60px);
+    max-width: rem(60px);
+    height: rem(60px);
+    background: var(--mantine-color-accents-4);
+    color: white;
+    border-radius: 50%;
+
+    @media (max-width: $mantine-breakpoint-sm) {
+        width: rem(48px);
+        max-width: rem(48px);
+        height: rem(48px);
+    }
+}
